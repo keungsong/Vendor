@@ -19,6 +19,7 @@ class _LoginSreenState extends State<LoginSreen> {
   var _emailTextController = TextEditingController();
   var _passwordTextController = TextEditingController();
   String email, password;
+  bool _loading = false;
   @override
   Widget build(BuildContext context) {
     final _authData = Provider.of<AuthProvider>(context);
@@ -103,6 +104,9 @@ class _LoginSreenState extends State<LoginSreen> {
                         if (value.length < 6) {
                           return 'ລະຫັດຕ່ຳສຸດ 6 ຕົວອັກສອນ';
                         }
+                        setState(() {
+                          password = value;
+                        });
                         return null;
                       },
                       obscureText: _visible == false ? true : false,
@@ -137,13 +141,22 @@ class _LoginSreenState extends State<LoginSreen> {
                             child: FlatButton(
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
+                              setState(() {
+                                _loading = true;
+                              });
                               _authData
                                   .loginVendor(email, password)
                                   .then((credential) {
-                                if (credential.user.uid != null) {
+                                if (credential != null) {
+                                  setState(() {
+                                    _loading = false;
+                                  });
                                   Navigator.pushReplacementNamed(
                                       context, Home.id);
                                 } else {
+                                  setState(() {
+                                    _loading = false;
+                                  });
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(content: Text(_authData.error)));
                                 }
@@ -151,12 +164,14 @@ class _LoginSreenState extends State<LoginSreen> {
                             }
                           },
                           color: Theme.of(context).primaryColor,
-                          child: Text(
-                            'ເຂົ້າລະບົບ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          child: _loading
+                              ? LinearProgressIndicator()
+                              : Text(
+                                  'ເຂົ້າລະບົບ',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
                         ))
                       ],
                     )

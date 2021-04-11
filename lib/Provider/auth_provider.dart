@@ -110,17 +110,10 @@ class AuthProvider extends ChangeNotifier {
       userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        this.error = 'ລະຫັດບໍ່ປອດໄພ';
-        notifyListeners();
-        print('ລະຫັດບໍ່ປອດໄພ');
-      } else if (e.code == 'email-already-in-use') {
-        this.error = 'ອີແມລນີ້ຖືກໃຊ້ແລ້ວ';
-        notifyListeners();
-        print('ອີແມລນີ້ຖືກໃຊ້ແລ້ວ');
-      }
+      this.error = e.code;
+      notifyListeners();
     } catch (e) {
-      this.error = e.toString();
+      this.error = e.code;
       notifyListeners();
       print(e);
     }
