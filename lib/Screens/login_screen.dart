@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:vendor/Provider/auth_provider.dart';
 import 'package:vendor/Screens/HoneScreen.dart';
+import 'package:vendor/Screens/register_screen.dart';
 
 class LoginSreen extends StatefulWidget {
   static const String id = 'login-screen';
@@ -16,7 +17,7 @@ class _LoginSreenState extends State<LoginSreen> {
   final _formKey = GlobalKey<FormState>();
   Icon icon;
   bool _visible = false;
-  var _emailTextController = TextEditingController();
+  var _usernameTextController = TextEditingController();
   var _passwordTextController = TextEditingController();
   String email, password;
   bool _loading = false;
@@ -67,12 +68,13 @@ class _LoginSreenState extends State<LoginSreen> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: _usernameTextController,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'ກະລຸນາປ້ອນອີແມລ';
                         }
-                        final bool _isValid =
-                            EmailValidator.validate(_emailTextController.text);
+                        final bool _isValid = EmailValidator.validate(
+                            _usernameTextController.text);
                         if (!_isValid) {
                           return 'ອີແມບໍ່ຖືກຕ້ອງ';
                         }
@@ -84,7 +86,7 @@ class _LoginSreenState extends State<LoginSreen> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(),
                           contentPadding: EdgeInsets.zero,
-                          hintText: 'ອີແມລ',
+                          hintText: 'ບັນຊີຜູ້ໃຊ້',
                           prefixIcon: Icon(Icons.email_outlined),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -97,6 +99,7 @@ class _LoginSreenState extends State<LoginSreen> {
                       height: 20,
                     ),
                     TextFormField(
+                      controller: _passwordTextController,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'ກະລຸນາໃສ່ລະຫັດຜ່ານ';
@@ -174,7 +177,20 @@ class _LoginSreenState extends State<LoginSreen> {
                                 ),
                         ))
                       ],
-                    )
+                    ),
+                    FlatButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, RegisterScreen.id);
+                        },
+                        child: RichText(
+                            text: TextSpan(text: '', children: [
+                          TextSpan(
+                              text: 'ຍັງບໍ່ມີບັນຊີ ? ',
+                              style: TextStyle(color: Colors.black54)),
+                          TextSpan(
+                              text: 'ລົງທະບຽນ',
+                              style: TextStyle(color: Colors.blue))
+                        ])))
                   ],
                 ),
               ),

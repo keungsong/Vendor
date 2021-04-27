@@ -39,6 +39,7 @@ dependencies:
   email_validator: ^1.0.5
   firebase_storage: ^5.2.0
   cloud_firestore: any
+  flutter_slider_drawer: ^1.2.1
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:vendor/Provider/auth_provider.dart';
+import 'package:vendor/Screens/add_new_product_screen.dart';
 import 'package:vendor/Screens/login_screen.dart';
 
 import 'package:vendor/Screens/register_screen.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         SplashScreen.id: (context) => SplashScreen(),
         RegisterScreen.id: (context) => RegisterScreen(),
         Home.id: (context) => Home(),
-        LoginSreen.id: (context) => LoginSreen()
+        LoginSreen.id: (context) => LoginSreen(),
+        AddNewProduct.id: (context) => AddNewProduct()
       },
     );
   }
