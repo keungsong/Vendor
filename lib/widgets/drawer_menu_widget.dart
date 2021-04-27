@@ -76,7 +76,7 @@ class _MenuWidgetState extends State<MenuWidget> {
           sliderItem('ສັ່ງຊື້', Icons.list_alt_outlined),
           sliderItem('ລາຍງານຜົນ', Icons.stacked_bar_chart),
           sliderItem('ຕັ້ງຄ່າຫ', Icons.settings_outlined),
-          sliderItem('LogOut', Icons.arrow_back_ios)
+          sliderItem('ອອກຈາກລະບົບ', Icons.arrow_back_ios)
         ],
       ),
     );

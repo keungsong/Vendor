@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:vendor/Provider/auth_provider.dart';
+
 import 'package:vendor/Screens/HoneScreen.dart';
 import 'package:vendor/Screens/register_screen.dart';
 
@@ -69,6 +70,7 @@ class _LoginSreenState extends State<LoginSreen> {
                     ),
                     TextFormField(
                       controller: _usernameTextController,
+                      keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'ກະລຸນາປ້ອນອີແມລ';
@@ -161,7 +163,9 @@ class _LoginSreenState extends State<LoginSreen> {
                                     _loading = false;
                                   });
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text(_authData.error)));
+                                      SnackBar(
+                                          content:
+                                              Text('ຂໍອາໄພ ບໍ່ພົບບັນຊີນີ້')));
                                 }
                               });
                             }

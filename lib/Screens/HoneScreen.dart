@@ -33,7 +33,12 @@ class _HomeState extends State<Home> {
           ),
           trailing: Row(
             children: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+              IconButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.pushReplacementNamed(context, LoginSreen.id);
+                  },
+                  icon: Icon(Icons.search)),
               IconButton(onPressed: () {}, icon: Icon(CupertinoIcons.bell))
             ],
           ),
