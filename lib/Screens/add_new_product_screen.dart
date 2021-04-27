@@ -38,7 +38,7 @@ class AddNewProduct extends StatelessWidget {
                       color: Colors.white,
                     ),
                     label: Text(
-                      'ເພີ່ມ',
+                      'ເພີ່ມໃໝ່',
                       style: TextStyle(color: Colors.white),
                     ),
                     onPressed: () {},
