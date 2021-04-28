@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:vendor/Provider/auth_provider.dart';
+import 'package:vendor/Provider/product_provider.dart';
 import 'package:vendor/Screens/add_new_product_screen.dart';
 import 'package:vendor/Screens/login_screen.dart';
 
@@ -19,6 +20,7 @@ void main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => AuthProvider()),
+      ChangeNotifierProvider(create: (_) => ProductProvider()),
     ],
     child: MyApp(),
   ));

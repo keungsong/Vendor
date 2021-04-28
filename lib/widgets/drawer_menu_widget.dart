@@ -46,7 +46,7 @@ class _MenuWidgetState extends State<MenuWidget> {
           ),
           FittedBox(
             child: CircleAvatar(
-              radius: 35,
+              radius: 38,
               backgroundColor: Colors.grey,
               child: CircleAvatar(
                 radius: 40,
@@ -75,7 +75,7 @@ class _MenuWidgetState extends State<MenuWidget> {
           sliderItem('ຄູ່ປ່ອງ', CupertinoIcons.gift),
           sliderItem('ສັ່ງຊື້', Icons.list_alt_outlined),
           sliderItem('ລາຍງານຜົນ', Icons.stacked_bar_chart),
-          sliderItem('ຕັ້ງຄ່າຫ', Icons.settings_outlined),
+          sliderItem('ຕັ້ງຄ່າ', Icons.settings_outlined),
           sliderItem('ອອກຈາກລະບົບ', Icons.arrow_back_ios)
         ],
       ),
@@ -102,7 +102,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 ),
                 Text(
                   title,
-                  style: TextStyle(color: Colors.black54, fontSize: 12),
+                  style: TextStyle(color: Colors.black54, fontSize: 18),
                 )
               ],
             ),

@@ -64,14 +64,18 @@ class ProductScreen extends StatelessWidget {
               ),
             ),
           ),
-          TabBar(indicatorColor: Theme.of(context).primaryColor, tabs: [
-            Tab(
-              text: 'ອານຸຍາດແລ້ວ',
-            ),
-            Tab(
-              text: 'ຍັງບໍ່ອະນຸຍາດ',
-            )
-          ]),
+          TabBar(
+              indicatorColor: Theme.of(context).primaryColor,
+              labelColor: Theme.of(context).primaryColor,
+              unselectedLabelColor: Colors.black54,
+              tabs: [
+                Tab(
+                  text: 'ອານຸຍາດແລ້ວ',
+                ),
+                Tab(
+                  text: 'ຍັງບໍ່ອະນຸຍາດ',
+                )
+              ]),
           Expanded(
             child: Container(
               child: TabBarView(children: [
